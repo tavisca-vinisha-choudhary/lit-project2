@@ -2,15 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit + TS</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/my-element.ts"></script>
+    <title>Lit Button with Static Inputs</title>
+    <script type="module" src="./src/components/button1.ts"></script>
+    <script type="module" src="./src/components/segment_cont.ts"></script>
   </head>
   <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
+    <style>
+      segmented-control1{
+        display: block;
+        margin-top: 20px;
+      }
+      .segment3{--segment_padding:14px}
+    </style>
+    <!-- All button inputs are now defined in HTML, not via user interaction -->
+    <!-- <my-button
+      color="purple"
+      label="Submit Now"
+      shape="pill"
+      disable="false"
+    ></my-button>
+    <my-button
+      color="red"
+      label="Submit Now"
+      shape="pill"
+      disable="false"
+    ></my-button> -->
+    <segmented-control1 class="segment1" size="small"></segmented-control1>
+    <segmented-control1 class="segment3"></segmented-control1>
+     <segmented-control1 class="segment2"></segmented-control1>
   </body>
+  <script>
+  var segment1=[
+    { label: 'Hotels', value: 'completed' },
+    { label: 'Vacation Homes', value: 'incomplete' }]
+    document.querySelector('.segment1').setAttribute('segments', JSON.stringify(segment1))
+    document.querySelector('.segment1').addEventListener('segment-change',(event)=>{console.log(event)})
+  var segment2=[
+     { label: 'flight', value: 'completed',sublabel:'sublabel' },
+    { label: 'activity', value: 'incomplete',sublabel:'sublabel' },
+  ] 
+  document.querySelector('.segment2').setAttribute('segments', JSON.stringify(segment2))
+  
+  var segment3=[
+    { label: 'Hotels', value: 'completed' },
+    { label: 'Vacation Homes', value: 'incomplete' }]
+    document.querySelector('.segment3').setAttribute('segments', JSON.stringify(segment3))
+    </script>
+
 </html>
