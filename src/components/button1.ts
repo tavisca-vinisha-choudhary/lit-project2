@@ -10,7 +10,7 @@ export class MyButton extends LitElement {
   static styles = css`
     button {
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 50px;
       color: white;
       border: none;
       cursor: pointer;
